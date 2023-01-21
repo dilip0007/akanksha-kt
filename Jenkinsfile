@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker Image'){
             steps {
                  withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                     sh "sudo docker login -u $user --password $password"
+                     sh "sudo docker login -u $user --pass $password"
                      sh "sudo docker push ${IMAGE_NAME}:latest"
                      
                      sh "ls -lrt"
