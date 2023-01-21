@@ -45,7 +45,7 @@ pipeline {
                  sh "scp -vv -o StrictHostkeychecking=no /var/lib/jenkins/workspace/akanksha_pipeline/*.yml ec2-user@18.205.17.190:/home/ec2-user"
                  
                  sh "ssh ec2-user@18.205.17.190 kubectl apply -f deployment.yml"
-                 sh "ssh ec2-user@18.205.17.190 kubectl port-forward --address 0.0.0.0 service/flask-app-svc 32000:80"
+                 
                  
                  
                  
