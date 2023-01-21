@@ -39,18 +39,18 @@ pipeline {
         stage('deploy') {
 
             steps {
-               # sshagent(['kubeadmin']) {
+               
     
                  sh "ls -lrt"
                  
                  sh "whoami"
                  sh "id"
-                 #sh "sudo sftp ubuntu@172.31.28.115"
-                 #sh "sudo sh -x x"
+                 
+                 
                 
                  
                  
-                }
+                
                 
             }
 
