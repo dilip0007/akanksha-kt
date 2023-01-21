@@ -12,15 +12,15 @@ pipeline {
         stage('Build') {
             steps {
                 sh "curl ifconfig.me. && id ;pwd;whoami"
-                sh "echo hi && echo ${BUILD_NUMBER} && cd /var/lib/jenkins/workspace/akanksha_pipeline && docker build -t ${IMAGE_NAME}:latest ." 
-                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                sh "echo hi && echo ${BUILD_NUMBER} && cd /var/lib/jenkins/workspace/akanksha_pipeline && sudo docker build -t ${IMAGE_NAME}:latest ." 
+                sh " sudo docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
             }
         }
         stage('Push Docker Image'){
             steps {
                  withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                     sh "docker login -u $user --password $password"
-                     sh "docker push ${IMAGE_NAME}:latest"
+                     sh "sudo docker login -u $user --password $password"
+                     sh "sudo docker push ${IMAGE_NAME}:latest"
                      
                      sh "ls -lrt"
                      
@@ -31,8 +31,8 @@ pipeline {
 
         stage('Delete Docker Images'){
             steps {
-                sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
-                sh "docker rmi ${IMAGE_NAME}:latest"
+                sh "sudo docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "sudo docker rmi ${IMAGE_NAME}:latest"
                 
             }
         }
