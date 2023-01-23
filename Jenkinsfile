@@ -44,7 +44,7 @@ pipeline {
     
                  sh "scp -vv -o StrictHostkeychecking=no /var/lib/jenkins/workspace/akanksha_pipeline/*.yml ec2-user@18.205.17.190:/home/ec2-user"
                  
-                 sh "ssh ec2-user@18.205.17.190 kubectl apply -f deployment.yml;pwd"
+                 sh "ssh ec2-user@18.205.17.190 kubectl apply -f deployment.yml;pwd;ls"
                  
                  
                  
