@@ -23,6 +23,7 @@ pipeline {
                      sh "sudo docker push ${IMAGE_NAME}:latest"
                      
                      sh "ls -lrt"
+                     sh "ls"
                      
                      
                  }
