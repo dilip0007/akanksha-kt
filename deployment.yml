@@ -29,5 +29,5 @@ spec:
     targetPort: 5000
     nodePort: 32000
   selector:
-    app: flask-app3
+    app: flask-app4
 
